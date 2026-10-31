@@ -1,0 +1,9 @@
+# Python >= 3.10. Minimum versions needed by the code; the exact tested
+# versions are listed in README.md ("Tested with").
+numpy>=1.21
+scipy>=1.7            # allowed for NMF by the assignment; no solver currently needs it
+matplotlib>=3.5       # figures only (subplots(layout="constrained"))
+pillow>=9.1           # image loading only (Image.Resampling)
+scikit-learn>=1.0     # evaluation only (KMeans, NMI); never used for NMF
+# Optional, only for running the test suite:
+pytest>=7

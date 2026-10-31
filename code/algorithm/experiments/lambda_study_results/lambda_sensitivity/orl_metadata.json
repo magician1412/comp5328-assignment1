@@ -1,0 +1,58 @@
+{
+  "dataset": "orl",
+  "rank": 40,
+  "reduce": 3,
+  "tuning_setting": [
+    8,
+    2
+  ],
+  "seeds": {
+    "sample": 1000,
+    "corruption": 2000,
+    "init": 3000,
+    "rule": "base + repeat index"
+  },
+  "frobenius_nmf": {
+    "tol": 0.001,
+    "max_iter": 3000,
+    "rule": "window-5 cumulative relative change < tol, min_iter 200"
+  },
+  "rnmf_l1": {
+    "fixed_iterations": 2000,
+    "tol": 0.0
+  },
+  "python": "3.13.9",
+  "numpy": "2.3.5",
+  "machine": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "runs": [
+    {
+      "git_commit": "af07e06",
+      "settings": [
+        [
+          8,
+          2
+        ],
+        [
+          4,
+          0
+        ]
+      ],
+      "repeats": 5,
+      "lambdas": [
+        0.003,
+        0.005,
+        0.0075,
+        0.01,
+        0.015,
+        0.02,
+        0.03,
+        0.05,
+        0.1,
+        0.3
+      ],
+      "n_fits": 110,
+      "wall_minutes": 22.86,
+      "finished": "2026-10-01 21:16:50"
+    }
+  ]
+}

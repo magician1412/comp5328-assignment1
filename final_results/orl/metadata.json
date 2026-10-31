@@ -1,0 +1,115 @@
+{
+  "dataset": "orl",
+  "dataset_name": "ORL",
+  "data_dir": "/Users/koileesummer/Desktop/Sydney_Study/COMP5328/Assignment1/code/data/ORL",
+  "reduce": 3,
+  "image_shape": [
+    37,
+    30
+  ],
+  "n_features": 1110,
+  "n_images": 400,
+  "n_classes": 40,
+  "rank": 40,
+  "repeats": 5,
+  "sample_fraction": 0.9,
+  "settings": [
+    [
+      4,
+      0
+    ],
+    [
+      4,
+      1
+    ],
+    [
+      8,
+      1
+    ],
+    [
+      12,
+      1
+    ],
+    [
+      16,
+      1
+    ],
+    [
+      8,
+      2
+    ],
+    [
+      8,
+      3
+    ]
+  ],
+  "seeds": {
+    "sample": 100,
+    "corruption": 200,
+    "init": 300,
+    "rule": "base + repeat index r"
+  },
+  "methods": {
+    "Frobenius-NMF": {
+      "tol": 0.001,
+      "max_iter": 2000,
+      "min_iter": 200,
+      "stopping": "cumulative relative objective change over the last 5 iterations < tol, after min_iter"
+    },
+    "RNMF-L1": {
+      "lambda": 0.01,
+      "tol": 0.0,
+      "max_iter": 2000,
+      "min_iter": 200,
+      "stopping": "fixed budget: tol = 0 never triggers the rule"
+    }
+  },
+  "initialisation": "shared W, H for both methods: uniform [0, 1) x sqrt(mean(V) / rank), default_rng(init seed)",
+  "kmeans": {
+    "n_init": 10,
+    "random_state": "init seed (INIT_SEED + r)"
+  },
+  "statistics": {
+    "std": "sample standard deviation over repeats (ddof=1); NaN with one repeat",
+    "paired_rre_diff": "per repeat RRE(Frobenius-NMF) - RRE(RNMF-L1) on the same subsample, occlusion and initialisation; positive means RNMF-L1 is better",
+    "rre_occluded": "||(V_clean - WH)[mask]||_F / ||V_clean[mask]||_F; NaN when m = 0",
+    "rre_unoccluded": "the same on ~mask",
+    "objective_trace": "objective after every iteration, repeat 0 only"
+  },
+  "git": {
+    "commit": "2a1a6c0637157932125cc1205f89f8284feeeff8",
+    "commit_short": "2a1a6c0",
+    "dirty": false
+  },
+  "versions": {
+    "python": "3.10.16",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "numpy": "1.26.4",
+    "scipy": "1.11.4",
+    "scikit-learn": "1.5.2",
+    "matplotlib": "3.7.0",
+    "pillow": "11.0.0"
+  },
+  "command": "python code/algorithm/main.py --dataset orl",
+  "started": "2026-10-06T23:44:28",
+  "finished": "2026-10-06T23:59:00",
+  "runtime_seconds": 871.82,
+  "outputs": [
+    "metadata.json",
+    "objective_trace.csv",
+    "plots/orl_objective.pdf",
+    "plots/orl_objective.png",
+    "plots/orl_rre_sweeps.pdf",
+    "plots/orl_rre_sweeps.png",
+    "plots/orl_summary_table.tex",
+    "raw_results.csv",
+    "reconstructions/orl_reconstruction_b12_m1.png",
+    "reconstructions/orl_reconstruction_b16_m1.png",
+    "reconstructions/orl_reconstruction_b4_m0.png",
+    "reconstructions/orl_reconstruction_b4_m1.png",
+    "reconstructions/orl_reconstruction_b8_m1.png",
+    "reconstructions/orl_reconstruction_b8_m2.png",
+    "reconstructions/orl_reconstruction_b8_m3.png",
+    "summary.csv"
+  ]
+}

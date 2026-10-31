@@ -1,0 +1,7 @@
+repeat,method,lambda,rule_stop_iteration
+0,Frobenius-NMF,,319
+0,RNMF-L1,0.005,314
+0,RNMF-L1,0.01,2108
+0,RNMF-L1,0.02,1516
+0,RNMF-L1,0.03,1184
+0,RNMF-L1,0.05,857

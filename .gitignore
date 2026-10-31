@@ -1,0 +1,25 @@
+# Datasets are never committed: code/data/ holds only its .gitkeep in Git.
+code/data/*
+!code/data/.gitkeep
+*.pgm
+
+# Generated outputs (scripts reproduce them; face images must not be committed)
+code/results/
+code/figures/
+*.npz
+*.npy
+cache/
+
+# Python / tooling
+__pycache__/
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store
+
+# LaTeX build files
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.fdb_latexmk
+*.fls
